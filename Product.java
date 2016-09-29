@@ -2,6 +2,8 @@ package niit.foodgro.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -14,6 +16,12 @@ public class Product {
 	private String Id;
 	private String Name;
 	private String Price;
+	@ManyToOne
+	@JoinColumn(name="category_id", insertable=false, updatable=false,nullable=true)
+	private Category category;
+	@ManyToOne
+	@JoinColumn(name="supplier_id", insertable=false, updatable=false,nullable=true)
+	private Supplier supplier;
 	public String getId() {
 		return Id;
 	}
