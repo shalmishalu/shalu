@@ -13,6 +13,9 @@ public class Category {
 	private String id;
 	private String name;
 	private String description;
+	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+	private Set<Product> product;
+
 
 	public String getId() {
 		return id;
