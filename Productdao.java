@@ -7,7 +7,7 @@ import niit.foodgro.model.Product;
 public interface Productdao {
 	public boolean save(Product product);
 	public boolean update(Product product);
-	public boolean delete(String id );
+	public void delete(String id );
 	public Product get(String id);
 	public List<Product> list();
 	
