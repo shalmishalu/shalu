@@ -67,21 +67,21 @@ public class ApplicationContextConfig {
 		return transactionManager;
 	}
 	//@Autowired
-	//@Bean(name = "categoryDao")
-	//public CategoryDAO getCategorydao(SessionFactory sessionFactory) {
-	//return new Categorydao(sessionFactory);
-	//}
+	@Bean(name = "categorydao")
+	public Categorydao getCategorydao(SessionFactory sessionFactory) {
+	return new Categorydao(sessionFactory);
+	}
 
-	//@Autowired
-	//@Bean(name = "supplierDao")
-	//public Supplierdao getSupplierdao(SessionFactory sessionFactory) {
-	//return new SupplierdaoImpl(sessionFactory);
-	//}
-	//@Autowired
-	//@Bean(name = "productDao")
-	//public Productdao getProductdao(SessionFactory sessionFactory) {
-	//return new ProductdaoImpl(sessionFactory);
-	//}
+	@Autowired
+	@Bean(name = "supplierdao")
+	public Supplierdao getSupplierdao(SessionFactory sessionFactory) {
+	return new SupplierdaoImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "productDao")
+	public Productdao getProductdao(SessionFactory sessionFactory) {
+	return new ProductdaoImpl(sessionFactory);
+	}
 
     
 }
