@@ -19,7 +19,7 @@ import niit.foodgro.model.*;
 
 
 @Configuration
-@ComponentScan("niit")
+@ComponentScan("niit.foodgro")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 	
@@ -69,7 +69,7 @@ public class ApplicationContextConfig {
 	//@Autowired
 	@Bean(name = "categorydao")
 	public Categorydao getCategorydao(SessionFactory sessionFactory) {
-	return new Categorydao(sessionFactory);
+	return new CategorydaoImpl(sessionFactory);
 	}
 
 	@Autowired
@@ -78,7 +78,7 @@ public class ApplicationContextConfig {
 	return new SupplierdaoImpl(sessionFactory);
 	}
 	@Autowired
-	@Bean(name = "productDao")
+	@Bean(name = "productdao")
 	public Productdao getProductdao(SessionFactory sessionFactory) {
 	return new ProductdaoImpl(sessionFactory);
 	}
