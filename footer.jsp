@@ -13,9 +13,9 @@
 </head>
 <style>
 .footer {
-   margin-top:500px;
-    color:red;
-    background-color: black;
+   margin-top:350px;
+    color:white;
+    background-color: voilet;
     clear: left;
     text-align: center;
 	}

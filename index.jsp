@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Food Grocery</title>
-<img src="resources/gro.jpg" class="img-thumbnail" style="width:120px;height:80px" align="left">
-<h1 style="color:orange"><center>GROCERY BAZAR</center></h1>
+<h2 style="color:orange"><center>GROCERY BAZAR</center></h2>
+<img src="resources/images/groc.jpg" class="img-thumbnail" style="width:180px;height:120px" align="left-center">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,33 +27,22 @@
 <li data-target="#mycaurosel" data-sliide-to="1"></li>
 <li data-target="#mycaurosel" data-slide-to="2"></li>
 <li data-target="#mycaurosel" data-slide-to="3"></li>
-<li data-target="#mycaurosel" data-slide-to="4"></li>
-<li data-target="#mycaurosel" data-slide-to="5"></li>
 </ol>
 <div class="carousel-inner" role="listbox">
 <div class="item active">
-<img src="resources/choco.jpg" alt="choco" width="500" height="460"/>
+<img src="/resources/images/anjir.jpg" alt="anjir" width="500" height="300"/>
 </div>
 <div class="item">
-<img src="resources/kopiko.jpg"alt="kopiko" width="500" height="460"/>
+<img src="/resources/images/ba.jpg"alt="ba" width="500" height="300"/>
 </div>
 <div class="item">
-<img src="resources/anjir.jpg"alt="anjir" width="500" height="460"/>
+<img src="/resources/images/juice.jpg"alt="juice"width="500" height="300"/>
 </div>
 <div class="item">
-<img src="resources/ba.jpg"alt="ba" width="50O" height="460"/>
+<img src="/resources/images/dates.jpg"alt="dates"width="500"height="300"/>
 </div>
 <div class="item">
-<img src="resources/juic.jpg"alt="juic"width="500" height="460"/>
-</div>
-<div class="item">
-<img src="resources/swee.jpeg"alt="swee"width="500"height="460"/>
-</div>
-<div class="item">
-<img src="resources/org.jpeg"alt="org"width="500"height="460"/>
-</div>
-<div class="item">
-<img src="resources/break.jpeg"alt="break"width="500"height="460"/>
+<img src="/resources/images/org.jpg"alt="org"width="500"height="300"/>
 </div>
 </div>
 </div>
@@ -70,4 +59,3 @@
 <%@ include file="footer.jsp" %>
 </body>
 </html>
-
