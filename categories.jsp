@@ -5,15 +5,14 @@
 <html>
 <head>
 <title>Category Page</title>
-
 </head>
 <body>
-	<h3>Add a Category</h3>
+	<h4>Add Category</h4>
 
 	<c:url var="addAction" value="/category/add"></c:url>
 
 	<form:form action="${addAction}" commandName="category">
-	<h>${message}</h>
+	<h3>${message}</h3>
 		<table>
 			<tr>
 				<td>Category Id</td>
@@ -27,19 +26,19 @@
 				<td>Category Description</td>
 				<td><input type="text" name="description"/></td>
 				</tr>
-				
-			<tr>
+				<tr>
 <td><input type="submit" value="Add Category"></td>
 </tr>	
-				
-		</table>
+        </table>
 	</form:form>
 	
 	<table>
 			<tr>
-				<th width="80">Category ID</th>
-				<th width="120">Category Name</th>
-				<th width="120">Category Description</th>
+				<th width="60">Category ID</th>
+				<th width="80">Category Name</th>
+				<th width="80">Category Description</th>
+				<th width="80">Edit/Remove</th>
+				
 				
 			</tr>
 			<c:forEach items="${categoryList}" var="category">
@@ -48,7 +47,7 @@
 					<td>${category.name}</td>
 					<td>${category.description}</td>
 					<td><a href="<c:url value='category/edit/${category.id}' />">Edit</a></td>
-					<td><a href="<c:url value='category/remove/${category.id}' />">Delete</a></td>
+					<td><a href="<c:url value='removecategory/${category.id}' />">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</table>

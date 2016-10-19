@@ -22,10 +22,10 @@ public class CategoryDAOImpl  implements CategoryDAO{
 	}
 	
 	
-	public boolean save(Category category) {
+	public boolean saveOrupdate(Category category) {
 		try
 		{
-			sessionFactory.getCurrentSession().save(category);
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
 		}catch (Exception e)
 		{
 	   e.printStackTrace();
@@ -34,21 +34,7 @@ public class CategoryDAOImpl  implements CategoryDAO{
 		return true;
 	}
 
-	
-	public boolean update(Category category) {
-		try
-		{
-			sessionFactory.getCurrentSession().update(category);	
-		}catch (Exception e)
-		{
-		e.printStackTrace();
-		return false;
-	}
-		return true;
-	}
-
-	
-	public boolean delete(String id) {
+public boolean delete(String id) {
 		Category category = new Category();
 		category.setId(id);
 		try
