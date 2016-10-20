@@ -2,19 +2,22 @@ package com.grostore.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.grostore.dao.CategoryDAO;
 import com.grostore.model.Category;
-
+import com.grostore.util.Util;
 
 @Controller
 public class CategoryController {
+	
 	@Autowired(required=true)
 	private CategoryDAO categoryDAO;
 	
@@ -22,46 +25,47 @@ public class CategoryController {
 	private Category category;
 	
 	
-	@RequestMapping(value="/categories", method=RequestMethod.GET)
-	public String listcategory(Model model){
+	@RequestMapping(value="/categories")
+	public String listcategory(Model model)
+	{
 	model.addAttribute("category",category);
 	model.addAttribute("categoryList",this.categoryDAO.list());
 	return "categories";
 	}
-	@RequestMapping(value="/category/add")
-	public String addcategory(@ModelAttribute Category category,Model model){
-		boolean flag=categoryDAO.saveOrupdate(category);
-		model.addAttribute("categoryList", this.categoryDAO.list());
-		ModelAndView mv = new ModelAndView("categories");
-		String msg= "Category added Successfully";
-if(flag!=true)
-{
-	msg = "operation could not success";
-}
-mv.addObject("msg", msg);
-return "redirect:/categories";
+	
+	
+	@RequestMapping(value="/addcategory")
+	public String addcategory(@ModelAttribute("category") Category category,Model model)
+	{
+		String newid = Util.removeComma(category.getId());
+		category.setId(newid);
+	
+		categoryDAO.saveOrUpdate(category);
+	/*model.addAttribute("category", category);
+	model.addAttribute("categoryList", this.categoryDAO.list());*/
+	return "redirect:/categories";
+    }
 
-	}
+	
+	
 	@RequestMapping("/removecategory/{id}")
-	public String deletecategory(@PathVariable("id") String id, Model model)throws Exception{
-		boolean flag = categoryDAO.delete(id);
-		ModelAndView mv = new ModelAndView("categories");
-				String msg= "Category Deleted Successfully";
-				model.addAttribute("categoryList", this.categoryDAO.list());
-		if(flag!=true)
-		{
-			msg = "operation could not success";
-		}
-		mv.addObject("msg", msg);
+	public String deleteCategory(@PathVariable("id") String id, ModelMap model)
+	
+	{
+		System.out.println("delete");
+		categoryDAO.delete(id);
 		return "redirect:/categories";
 	}
-	@RequestMapping("/category/edit/{id}")
-	public String editcategory(@ModelAttribute("category")Category category){
-		categoryDAO.saveOrupdate(category);
-		return "category";
+	
+	
+	@RequestMapping("/editcategory/{id}")
+	public String editCategory(@PathVariable("id")String id, Model model)
+	{
+		model.addAttribute("category",this.categoryDAO.get(id));
+		/*model.addAttribute("category", category);*/
+		model.addAttribute("categoryList", this.categoryDAO.list());
+		
+		return "categories";
 	}
-	@RequestMapping("/categories")
-	public ModelAndView category(@ModelAttribute Category category){
-		return new ModelAndView("categories");
-	}
+		
 }
