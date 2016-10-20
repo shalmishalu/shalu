@@ -7,83 +7,77 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
+import com.grostore.model.Category;
 import com.grostore.model.Supplier;
-
-
-@Transactional
 @EnableTransactionManagement
-@Repository("supplierDAO")
+@Repository
 public class SupplierDAOImpl implements SupplierDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
-
-	public SupplierDAOImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
-	
-	public boolean save(Supplier supplier) {
-		try
-		{
-			sessionFactory.getCurrentSession().save(supplier);
-		}catch (Exception e)
-		{
-	   e.printStackTrace();
-	   return false;
-		}
-		return true;
-	}
-
-	
-	public boolean update(Supplier supplier) {
-		try
-		{
-			sessionFactory.getCurrentSession().update(supplier);
-		}catch (Exception e)
-		{
-	   e.printStackTrace();
-	   return false;
-		}
-		return true;
-	}
-	
-	public List<Supplier> list() {
-		@SuppressWarnings("unchecked")
-		List<Supplier> listSupplier = (List<Supplier>) 
-		          sessionFactory.getCurrentSession()
-				.createCriteria(Supplier.class)
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-
-		return listSupplier;
-	}
-	
-	public Supplier get(String id) {
-		String hql = "from Supplier where id=" + "'"+ id +"'";
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	public SupplierDAOImpl(SessionFactory sessionFactory)
+	{
 		
-		@SuppressWarnings("unchecked")
-		List<Supplier> listSupplier = (List<Supplier>) query.list();
-		
-		if (listSupplier != null && !listSupplier.isEmpty()) {
-			return listSupplier.get(0);
+		try 
+		{
+			this.sessionFactory = sessionFactory;
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
 		}
-		
-		return null;
 	}
 
+	@Transactional
 	public boolean delete(String id) {
 		Supplier supplier = new Supplier();
 		supplier.setId(id);
-		try
-		{
-			sessionFactory.getCurrentSession().delete(supplier);	
-		}catch (Exception e)
-		{
-		e.printStackTrace();
-		return false;
-	}
+		try {
+			sessionFactory.getCurrentSession().delete(supplier);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 	}
+	
+@Transactional
+	public Supplier get(String id) {
+		String hql = "from Supplier where id =" + "'" + id + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Supplier> list = (List<Supplier>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+@Transactional
+	public List<Supplier> list() {
+		@SuppressWarnings("unchecked")
+		List<Supplier> list = (List<Supplier>) sessionFactory.getCurrentSession().createCriteria(Supplier.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+
+		return list;
+	}
+
+@Transactional
+	public Supplier getByName(String name) {
+		String hql = "from Supplier where name =" + "'" + name + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Supplier> list = (List<Supplier>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+@Transactional
+	public void saveOrUpdate(Supplier supplier) {
+		sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 		
 	}
-	
+}
+
