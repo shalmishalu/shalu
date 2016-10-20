@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="/views/header.jsp" %>
 Contact us at:9876543210 <br><br>
 EMAIL ID:grobazar@gmail.com
+<%@ include file="/views/footer.jsp" %>
 </body>
 </html>

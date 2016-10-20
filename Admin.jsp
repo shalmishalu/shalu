@@ -7,10 +7,11 @@
 <title>MY HOME</title>
 </head>
 <body>
-<div id="adminhome">
+<%@ include file="/views/header.jsp" %>
+<div id="/Admin">
 <a href ="categories"> MANAGE CATEGORIES</a> &nbsp; &nbsp;
 <a href ="supplier">MANAGE SUPPLIER</a> &nbsp; &nbsp;
-<a href ="manageproducts">MANAGE PRODUCTS</a> &nbsp; &nbsp;
+<a href ="product">MANAGE PRODUCTS</a> &nbsp; &nbsp;
 </div>
 </body>
 </html>

@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>MY HOME</title>
+<%@ include file="/views/header.jsp" %>
 </head>
 <body>
 <h>${message}</h>
@@ -17,9 +18,9 @@
 
 
 	   <center><font size=5>LOGIN</font></center> 
-	   
-	   <table cellspacing="25" cellpadding="2" width="45%" align="center">
-	   
+	  
+	   <table cellspacing="25" cellpadding="2" width="45%" bgcolor="crimson"color="black"
+			align="center">
 
 
 <tr>

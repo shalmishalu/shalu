@@ -14,7 +14,7 @@
 <style>
 .footer {
    margin-top:350px;
-    color:white;
+    color:black;
     background-color: voilet;
     clear: left;
     text-align: center;

@@ -13,12 +13,12 @@
 <body>
 
 
-	
+	<%@ include file="/views/header.jsp" %>
 		<form:form method="post" action="Success" commandName="userDetails">
 		<center>
 			<font size=5><b>Registration Form</b></font>
 		</center>
-		<table cellspacing="25" cellpadding="2" width="45%" bgcolor="PINK"
+		<table cellspacing="25" cellpadding="2" width="45%" bgcolor="crimson"
 			align="center">
 
 			<tr>
@@ -85,6 +85,6 @@
 				
 		</table>
 	</form:form>
-	
+	<%@ include file="/views/footer.jsp" %>
 </body>
 </html>

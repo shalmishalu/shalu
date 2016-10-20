@@ -19,14 +19,17 @@
    <li class="active"><a href="#">HOME</a></li>
     <li><a href="Aboutus">ABOUTUS</a></li>
   <li><a href="Register">REGISTER</a></li> 
+   <li><a href="Login">LOGIN</a></li>
 	  <li><a href="Contact">CONTACT</a></li> 
-	  <li><a href="categories">CATEGORIES</a></li>
+	  <li><a href="product">PRODUCT</a></li>
+	 
+	  
+	  
     </ul>
 	<ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
       <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
-    </ul>
+       </ul>
   </div>
 </body>
 </html>
